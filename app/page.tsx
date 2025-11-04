@@ -6,7 +6,8 @@ import Tag from './components/tag'
 const page = () => {
   return (
     <div className='flex justify-center h-screen'>
-      <div className='flex'> {/* Master Container */}
+      
+      <div className='flex'> {/* Master Container of about me section w/skills*/}
         <div>{/* small mini header ontop of the about me section. this is the left side */}
           <h2 className='text-gray-500 text-md font-sans mb-4 ml-2 tracking-wide'>ABOUT ME</h2>
 
