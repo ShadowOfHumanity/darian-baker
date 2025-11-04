@@ -1,4 +1,4 @@
-import { Braces, Calendar, Disc, MapPin } from 'lucide-react'
+import { Braces, Calendar, CornerRightDown, Disc, MapPin, MoveRight } from 'lucide-react'
 import React from 'react'
 import { GetAge } from './lib/Utility'
 import Tag from './components/tag'
@@ -6,11 +6,11 @@ import Tag from './components/tag'
 const page = () => {
   return (
     <div className='flex justify-center h-screen'>
-      <div className='flex'>
-        <div>
+      <div className='flex'> {/* Master Container */}
+        <div>{/* small mini header ontop of the about me section. this is the left side */}
           <h2 className='text-gray-500 text-md font-sans mb-4 ml-2 tracking-wide'>ABOUT ME</h2>
 
-          <div className='flex-col m-2'>
+          <div className='flex-col m-2'> {/* Main about me section, seperated as a div.*/}
             <h1 className='text-4xl font-bold tracking-wide'>Hi, I'm <span className='text-[#C96065]'>Darian</span></h1>
             <h1 className='text-4xl font-bold tracking-wide'><span className='text-[#C96065]'>Baker</span></h1>       
                   <div className='mt-5'>
@@ -58,16 +58,49 @@ const page = () => {
             </div>
 
           </div>
+          </div>
         </div>
-
-
-
-
-        </div>
+        
+        {/* Right side section, what i do, skills, technologies.*/}
         <div>
           <h2 className='text-gray-100 text-lg font-sans mt-16 ml-2 tracking-wide'>Key Skills</h2>
-          <br></br>
-          <Tag />
+
+        {/* Some tags, for skills*/}
+          <div className='grid grid-cols-4 ml-2 mt-4 gap-2'>
+            <Tag>C#</Tag> <Tag>TypeScript</Tag> <Tag>React</Tag>
+            <Tag>Next.Js</Tag> <Tag>.NET</Tag> <Tag>SQL</Tag> <Tag>Docker</Tag>
+          </div>
+          
+        {/* What I do / Services */}
+          <div className='flex ml-2 mt-8'>
+            <h2 className='text-gray-100 text-lg font-sans ml-2 tracking-wide'> What I Do </h2>
+            <CornerRightDown className='text-[#C96065] ml-2 mt-2'/>
+          </div>
+
+          <div className='flex-col gap-4 ml-2 mt-4'>
+              <div className='flex items-center gap-4'>
+                <MoveRight className='text-[#C96065] ml-2'/>
+                <h4 className='text-gray-300'>Web Development</h4>
+              </div>
+              <div className='flex items-center gap-4'>
+                <MoveRight className='text-[#C96065] ml-2'/>
+                <h4 className='text-gray-300'>Game Development</h4>
+              </div>
+              <div className='flex items-center gap-4'>
+                <MoveRight className='text-[#C96065] ml-2'/>
+                <h4 className='text-gray-300'>Service Development</h4>
+              </div>
+              <div className='flex items-center gap-4'>
+                <MoveRight className='text-[#C96065] ml-2'/>
+                <h4 className='text-gray-300'>API Solutions</h4>
+              </div>
+              <div className='flex items-center gap-4'>
+                <MoveRight className='text-[#C96065] ml-2'/>
+                <h4 className='text-gray-300'>AI Solutions</h4>
+              </div>
+          </div>
+          
+
         </div>
       </div>
     </div>
