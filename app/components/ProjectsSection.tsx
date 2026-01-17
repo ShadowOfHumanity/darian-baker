@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { 
   ExternalLink, Github, X, 
   ShoppingCart, Gamepad2, Bot, BarChart3, 
-  Globe, Server, Wallet, Code2, Layers,
+  Globe, Server, Wallet, Code2, Layers, Cpu, Image, Disc,
   LucideIcon
 } from 'lucide-react'
 import { useState } from 'react'
@@ -21,68 +21,62 @@ interface Project {
   githubUrl?: string
 }
 
-// Your actual projects based on freelance work
+// Hardcoded pinned GitHub projects
 const projects: Project[] = [
   {
     id: 1,
-    title: "Finance AI Platform",
-    description: "AI-powered financial analysis tool for automated trading insights and portfolio management",
-    longDescription: "Built a comprehensive financial platform integrating AI for market analysis, automated trading signals, and portfolio optimization. Features real-time data processing, predictive analytics, and secure API integrations with major financial services.",
-    tags: ["React", "TypeScript", ".NET", "AI/ML", "PostgreSQL", "APIs"],
-    icon: Wallet,
-    color: "#10B981",
-    liveUrl: "#",
-    githubUrl: "#"
+    title: "game-hub",
+    description: "A modern game discovery platform built with TypeScript.",
+    longDescription: "Game Hub is a web application for discovering, searching, and reviewing games. Built with React, TypeScript, and modern UI/UX principles.",
+    tags: ["TypeScript", "React", "Web"],
+    icon: BarChart3,
+    color: "#8B5CF6",
+    githubUrl: "https://github.com/ShadowOfHumanity/game-hub",
+    liveUrl: undefined
   },
   {
     id: 2,
-    title: "Gaming Platform Backend",
-    description: "Scalable multiplayer game server with real-time synchronization and matchmaking",
-    longDescription: "High-performance game backend handling real-time multiplayer synchronization, player authentication, matchmaking algorithms, and leaderboards. Built with event-driven architecture supporting thousands of concurrent players.",
-    tags: ["C#", ".NET", "Redis", "WebSockets", "SQL Server"],
-    icon: Gamepad2,
-    color: "#8B5CF6",
-    githubUrl: "#"
+    title: "TryJarvisV1",
+    description: "AI assistant and automation platform in Python.",
+    longDescription: "TryJarvisV1 is an AI-powered assistant for automating tasks and providing intelligent responses. Built with Python and machine learning libraries.",
+    tags: ["Python", "AI", "Automation"],
+    icon: Cpu,
+    color: "#EC4899",
+    githubUrl: "https://github.com/ShadowOfHumanity/TryJarvisV1",
+    liveUrl: undefined
   },
   {
     id: 3,
-    title: "Retail E-Commerce Solution",
-    description: "Full-stack e-commerce platform with inventory management and payment processing",
-    longDescription: "Comprehensive e-commerce solution featuring real-time inventory tracking, secure payment processing, order management, and an admin dashboard. Enhanced user engagement by 25%+ through optimized UX and API integrations.",
-    tags: ["Next.js", "TypeScript", ".NET", "PostgreSQL", "Stripe"],
-    icon: ShoppingCart,
+    title: "Pi-Generator",
+    description: "Infinite Pi generator using Java.",
+    longDescription: "A project from secondary school, Pi-Generator generates digits of Pi efficiently, leveraging memory for high performance. Written in Java.",
+    tags: ["Java", "Math", "Algorithm"],
+    icon: Disc,
     color: "#F59E0B",
-    liveUrl: "#",
-    githubUrl: "#"
+    githubUrl: "https://github.com/ShadowOfHumanity/Pi-Generator",
+    liveUrl: undefined
   },
   {
     id: 4,
-    title: "AI Chatbot Integration",
-    description: "Enterprise chatbot with custom knowledge base and natural language processing",
-    longDescription: "AI-powered chat application integrating large language models with custom fine-tuning for domain-specific knowledge. Features conversation context management and seamless third-party service integrations.",
-    tags: ["React", "TypeScript", "Python", "OpenAI", "APIs"],
-    icon: Bot,
-    color: "#EC4899",
-    liveUrl: "#"
+    title: "IMAGE_READER_AZURE",
+    description: "Java-based image reader for Azure cloud.",
+    longDescription: "IMAGE_READER_AZURE is a Java application for reading and processing images using Azure cloud services.",
+    tags: ["Java", "Azure", "Cloud"],
+    icon: Image,
+    color: "#3B82F6",
+    githubUrl: "https://github.com/ShadowOfHumanity/IMAGE_READER_AZURE",
+    liveUrl: undefined
   },
   {
     id: 5,
-    title: "GiG Automation Systems",
-    description: "Enterprise automation and configuration management across multiple system levels",
-    longDescription: "Full-stack applications driving automation and configuration for Gaming Innovation Group. Leveraged robust software architecture with Redis caching, Docker containerization, and .NET framework to enhance operational efficiency.",
-    tags: ["C#", ".NET", "Redis", "Docker", "SQL Server", "Automation"],
-    icon: Server,
-    color: "#3B82F6"
-  },
-  {
-    id: 6,
-    title: "Custom Web Applications",
-    description: "15+ bespoke web solutions for clients across various industries",
-    longDescription: "Delivered over 15 custom software projects spanning finance, gaming, and retail industries. Each project featured scalable architecture, API integrations, and user engagement improvements averaging 25% or higher.",
-    tags: ["React", "Next.js", ".NET", "TypeScript", "SQL", "APIs"],
-    icon: Globe,
+    title: "darian-baker",
+    description: "Personal portfolio built with Next.js and TypeScript.",
+    longDescription: "This is the source code for my personal portfolio, showcasing my skills, experience, and projects. Built with Next.js and TypeScript.",
+    tags: ["Next.js", "TypeScript", "Portfolio"],
+    icon: Layers,
     color: "#06B6D4",
-    liveUrl: "#"
+    githubUrl: "https://github.com/ShadowOfHumanity/darian-baker",
+    liveUrl: "https://darianbaker.eu"
   }
 ]
 

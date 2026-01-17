@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { 
   Braces, Calendar, MapPin, Disc, Globe, Gamepad2, 
-  Server, Cpu, Code2, ArrowDown, Sparkles, Coffee, Heart,
+  Server, Cpu, Code2, ArrowDown, Coffee, Heart,
   Download, FileText
 } from 'lucide-react'
 import { useState } from 'react'
@@ -78,13 +78,23 @@ export default function Home() {
               {/* Left Column - About Me */}
               <div>
                 <AnimatedSection delay={0}>
-                  <motion.span 
-                    className="inline-flex items-center gap-2 text-[#C96065] text-sm font-medium mb-6 px-3 py-1 rounded-full bg-[#C96065]/10 border border-[#C96065]/20"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <Sparkles className="w-4 h-4" />
-                    Available for opportunities
-                  </motion.span>
+                  <div className="flex items-center gap-6 mb-6">
+                    <motion.img
+                      src="https://avatars.githubusercontent.com/u/79085418?v=4"
+                      alt="Darian Baker Profile"
+                      className="w-20 h-20 rounded-full border-4 border-[#C96065] shadow-lg"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.1 }}
+                    />
+                    <motion.span 
+                      className="inline-flex items-center gap-2 text-[#C96065] text-sm font-medium px-3 py-1 rounded-full bg-[#C96065]/10 border border-[#C96065]/20"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Heart className="w-4 h-4" />
+                      Available for opportunities
+                    </motion.span>
+                  </div>
                 </AnimatedSection>
 
                 <AnimatedSection delay={0.1}>
@@ -160,12 +170,20 @@ export default function Home() {
                     >
                       View Projects
                     </AnimatedButton>
-                    <AnimatedButton 
-                      variant="secondary"
-                      icon={<Download className="w-4 h-4" />}
+                    <a 
+                      href="/file.pdf" 
+                      download
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block"
                     >
-                      Download CV
-                    </AnimatedButton>
+                      <AnimatedButton 
+                        variant="secondary"
+                        icon={<Download className="w-4 h-4" />}
+                      >
+                        Download CV
+                      </AnimatedButton>
+                    </a>
                   </div>
                 </AnimatedSection>
 
@@ -200,7 +218,7 @@ export default function Home() {
                 <AnimatedSection delay={0.5} direction="left">
                   <div>
                     <h2 className="text-lg font-semibold text-gray-100 mb-4 flex items-center gap-2">
-                      <Sparkles className="w-5 h-5 text-[#C96065]" />
+                      <Heart className="w-5 h-5 text-[#C96065]" />
                       What I Do
                     </h2>
                     <div className="space-y-1">
@@ -304,12 +322,19 @@ export default function Home() {
               >
                 Get In Touch
               </AnimatedButton>
-              <AnimatedButton 
-                variant="secondary"
-                icon={<FileText className="w-4 h-4" />}
+              <a 
+                href="/file.pdf" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
               >
-                View Resume
-              </AnimatedButton>
+                <AnimatedButton 
+                  variant="secondary"
+                  icon={<FileText className="w-4 h-4" />}
+                >
+                  View Resume
+                </AnimatedButton>
+              </a>
             </div>
           </motion.div>
         </section>

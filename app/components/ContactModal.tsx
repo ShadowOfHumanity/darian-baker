@@ -17,16 +17,27 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Open email client with pre-filled data
-    const mailtoLink = `mailto:darianbakerbray@gmail.com?subject=Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}%0A%0AFrom: ${formData.email}`
-    window.open(mailtoLink, '_blank')
+    // TODO: Integrate with backend API to send email directly
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+      if (response.ok) {
+        setSubmitted(true)
+        setTimeout(() => {
+          onClose()
+          setSubmitted(false)
+          setFormData({ name: '', email: '', message: '' })
+        }, 2000)
+      } else {
+        alert('Failed to send message. Please try again later.')
+      }
+    } catch (error) {
+      alert('Failed to send message. Please try again later.')
+    }
     setIsSubmitting(false)
-    setSubmitted(true)
-    setTimeout(() => {
-      onClose()
-      setSubmitted(false)
-      setFormData({ name: '', email: '', message: '' })
-    }, 2000)
   }
 
   return (
@@ -74,8 +85,8 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                 >
                   <Send className="w-8 h-8 text-[#C96065]" />
                 </motion.div>
-                <h3 className="text-xl font-semibold text-white mb-2">Opening Email Client</h3>
-                <p className="text-gray-400">Your message is ready to send!</p>
+                <h3 className="text-xl font-semibold text-white mb-2">Message Sent!</h3>
+                <p className="text-gray-400">Thank you for reaching out. I'll get back to you soon.</p>
               </motion.div>
             ) : (
               <>
