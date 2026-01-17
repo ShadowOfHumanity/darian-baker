@@ -1,124 +1,342 @@
-import { Braces, Calendar, CornerRightDown, Disc, MapPin, MoveRight } from 'lucide-react'
-import React from 'react'
+"use client"
+
+import { motion } from 'framer-motion'
+import { 
+  Braces, Calendar, MapPin, Disc, Globe, Gamepad2, 
+  Server, Cpu, Code2, ArrowDown, Sparkles, Coffee, Heart,
+  Download, FileText
+} from 'lucide-react'
+import { useState } from 'react'
 import { GetAge } from './lib/Utility'
-import Tag from './components/tag'
-import Box from './components/box'
+import InteractiveTag from './components/InteractiveTag'
+import AnimatedBox from './components/AnimatedBox'
+import AnimatedButton from './components/AnimatedButton'
+import AnimatedSection from './components/AnimatedSection'
+import TypewriterText from './components/TypewriterText'
+import ServiceCard from './components/ServiceCard'
+import FloatingParticles from './components/FloatingParticles'
+import SocialLinks from './components/SocialLinks'
+import ContactModal from './components/ContactModal'
+import ProjectsSection from './components/ProjectsSection'
+import ScrollIndicator from './components/ScrollIndicator'
+import Navbar from './components/Navbar'
+import ExperienceSection from './components/ExperienceSection'
+import EducationSection from './components/EducationSection'
+import TechStackSection from './components/TechStackSection'
 
-const page = () => {
+const services = [
+  { 
+    title: 'Web Development', 
+    description: 'Modern, responsive web applications with React & Next.js',
+    icon: Globe 
+  },
+  { 
+    title: 'Game Development', 
+    description: 'Engaging games and interactive experiences with Unity',
+    icon: Gamepad2 
+  },
+  { 
+    title: 'Backend Services', 
+    description: 'Scalable APIs and microservices with .NET',
+    icon: Server 
+  },
+  { 
+    title: 'AI Solutions', 
+    description: 'Intelligent automation and machine learning integration',
+    icon: Cpu 
+  },
+  { 
+    title: 'API Development', 
+    description: 'RESTful and GraphQL APIs for seamless integration',
+    icon: Code2 
+  },
+]
+
+const skills = [
+  'C#', 'TypeScript', 'React', 'Next.js', '.NET', 'SQL', 'Docker', 'Git'
+]
+
+export default function Home() {
+  const [isContactOpen, setIsContactOpen] = useState(false)
+  const age = GetAge()
+
+  const scrollToProjects = () => {
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
-    <div className='flex justify-center h-screen'>
-
-      <div className='flex-col'>
-        <div className='flex'> {/* Container of about me section w/skills*/}
-          <div>{/* small mini header ontop of the about me section. this is the left side */}
-            <h2 className='text-gray-500 text-md font-sans mb-4 ml-2 tracking-wide'>ABOUT ME</h2>
-
-            <div className='flex-col m-2'> {/* Main about me section, seperated as a div.*/}
-              <h1 className='text-4xl font-bold tracking-wide'>Hi, I'm <span className='text-[#C96065]'>Darian</span></h1>
-              <h1 className='text-4xl font-bold tracking-wide'><span className='text-[#C96065]'>Baker</span></h1>       
-                    <div className='mt-5'>
-              <div className='flex pr-3 items-center text-gray-400 mb-2'>
-                <MapPin  className='w-5 h-5 text-gray-400 mr-3' aria-hidden />
-                <h4 className='text-sm'>Based in Għargħur, Malta</h4>
-              </div>
-              <div className='flex pr-3 items-center text-gray-400 mb-2'>
-                <Disc className='w-5 h-5 text-gray-400 mr-3' aria-hidden />
-                <h4 className='text-sm'>{GetAge()} Years Old</h4>
-              </div>
-              <div className='flex pr-3 items-center text-gray-400 mb-2'>
-                <Braces className='w-5 h-5 text-gray-400 mr-3' aria-hidden />
-                <h4 className='text-sm'>Fullstack Software Developer</h4>
-              </div>
-              <div className='flex pr-3 items-center text-gray-400 mb-2'>
-                <Calendar className='w-5 h-5 text-gray-400 mr-3' aria-hidden />
-                <h4 className='text-sm'>{GetAge() - 17}+ Years Of Experience</h4> {/* Started Working at 17, professionally */}
-              </div>
-              <div className='mt-4 text-gray-200'>
-                <h4 className='text-sm leading-relaxed'>
-                  As a {GetAge()}-year-old software developer from Malta
-                  <br />
-                  {GetAge() < 21 && (
-                    <span>
-                      that is currently studying at the University of Malta,
-                      <br />
-                    </span>
-                  )}
-                  I look to push my skills further daily.
-                  <br />
-                  Outside of development, I enjoy football,
-                  <br />
-                  staying active, and learning about "magical" solutions
-                </h4>
-              </div>
-
-              <div className='flex pt-4 gap-5'>
-                <button className='bg-[#EB5C58] text-white-100 rounded-md px-4 py-2 hover:bg-[#C96065] transition-colors duration-300 cursor-pointer'>
-                  Contact Me
-                </button>
-                <button className='bg-[#140F10] border-3 border-[#191919] text-white-100 rounded-md px-4 py-2 hover:bg-[#1F1F1F] transition-colors duration-300 cursor-pointer'>
-                  View Projects
-                </button>
-              </div>
-
-            </div>
-            </div>
-          </div>
-          
-          {/* Right side section, what i do, skills, technologies.*/}
-          <div>
-            <h2 className='text-gray-100 text-lg font-sans mt-16 ml-2 tracking-wide'>Key Skills</h2>
-
-          {/* Some tags, for skills*/}
-            <div className='grid grid-cols-4 ml-2 mt-4 gap-2'>
-              <Tag>C#</Tag> <Tag>TypeScript</Tag> <Tag>React</Tag>
-              <Tag>Next.Js</Tag> <Tag>.NET</Tag> <Tag>SQL</Tag> <Tag>Docker</Tag>
-            </div>
-            
-          {/* What I do / Services */}
-            <div className='flex ml-2 mt-8'>
-              <h2 className='text-gray-100 text-lg font-sans ml-2 tracking-wide'> What I Do </h2>
-              <CornerRightDown className='text-[#C96065] ml-2 mt-2'/>
-            </div>
-
-            <div className='flex-col gap-4 ml-2 mt-4'>
-                <div className='flex items-center gap-4'>
-                  <MoveRight className='text-[#C96065] ml-2'/>
-                  <h4 className='text-gray-300'>Web Development</h4>
-                </div>
-                <div className='flex items-center gap-4'>
-                  <MoveRight className='text-[#C96065] ml-2'/>
-                  <h4 className='text-gray-300'>Game Development</h4>
-                </div>
-                <div className='flex items-center gap-4'>
-                  <MoveRight className='text-[#C96065] ml-2'/>
-                  <h4 className='text-gray-300'>Service Development</h4>
-                </div>
-                <div className='flex items-center gap-4'>
-                  <MoveRight className='text-[#C96065] ml-2'/>
-                  <h4 className='text-gray-300'>API Solutions</h4>
-                </div>
-                <div className='flex items-center gap-4'>
-                  <MoveRight className='text-[#C96065] ml-2'/>
-                  <h4 className='text-gray-300'>AI Solutions</h4>
-                </div>
-            </div>
-            
-
-          </div>
-        </div>
-        
-        <div className='flex mt-8 ml-2 gap-4'>
-            <Box TopText={GetAge() - 17 + "+"} Subtitle="Years of Experience"/>
-            <Box TopText={"5"} Subtitle="Projects in production"/>
-            <Box TopText={"20+"} Subtitle="Projects completed"/>
-            <Box TopText={"403"} Subtitle="Teas consumed"/>
-        </div>
-
-      </div>
-        
+    <>
+      <ScrollIndicator />
+      <Navbar />
+      <FloatingParticles />
       
-    </div>
+      <main className="min-h-screen relative z-10">
+        {/* Hero Section */}
+        <section id="about" className="min-h-screen flex items-center justify-center px-6 pt-20">
+          <div className="max-w-5xl w-full">
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              {/* Left Column - About Me */}
+              <div>
+                <AnimatedSection delay={0}>
+                  <motion.span 
+                    className="inline-flex items-center gap-2 text-[#C96065] text-sm font-medium mb-6 px-3 py-1 rounded-full bg-[#C96065]/10 border border-[#C96065]/20"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <Sparkles className="w-4 h-4" />
+                    Available for opportunities
+                  </motion.span>
+                </AnimatedSection>
+
+                <AnimatedSection delay={0.1}>
+                  <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4">
+                    Hi, I'm{' '}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EB5C58] to-[#C96065]">
+                      Darian
+                    </span>
+                    <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C96065] to-[#8B6369]">
+                      Baker
+                    </span>
+                  </h1>
+                </AnimatedSection>
+
+                <AnimatedSection delay={0.2}>
+                  <div className="text-2xl text-gray-300 mb-8 h-10">
+                    <TypewriterText 
+                      texts={[
+                        'Fullstack Developer',
+                        'Problem Solver',
+                        'Tech Enthusiast',
+                        'Tea Connoisseur'
+                      ]} 
+                    />
+                  </div>
+                </AnimatedSection>
+
+                <AnimatedSection delay={0.3}>
+                  <div className="space-y-3 mb-8">
+                    {[
+                      { icon: MapPin, text: 'Based in Għargħur, Malta' },
+                      { icon: Disc, text: `${age} Years Old` },
+                      { icon: Braces, text: 'Fullstack Software Developer' },
+                      { icon: Calendar, text: `${age - 17}+ Years Of Experience` },
+                    ].map((item, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4 + index * 0.1 }}
+                        whileHover={{ x: 5 }}
+                        className="flex items-center gap-3 text-gray-400 group cursor-default"
+                      >
+                        <item.icon className="w-5 h-5 text-[#C96065] group-hover:scale-110 transition-transform" />
+                        <span className="group-hover:text-gray-300 transition-colors">{item.text}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </AnimatedSection>
+
+                <AnimatedSection delay={0.5}>
+                  <p className="text-gray-400 leading-relaxed mb-8 max-w-md">
+                    As a {age}-year-old software developer from Malta
+                    {age < 21 && ' currently studying at the University of Malta'}, 
+                    I push my skills further daily. Outside of development, I enjoy football, 
+                    staying active, and discovering elegant solutions to complex problems.
+                  </p>
+                </AnimatedSection>
+
+                <AnimatedSection delay={0.6}>
+                  <div className="flex flex-wrap gap-4 mb-8">
+                    <AnimatedButton 
+                      variant="primary" 
+                      onClick={() => setIsContactOpen(true)}
+                    >
+                      Contact Me
+                    </AnimatedButton>
+                    <AnimatedButton 
+                      variant="secondary"
+                      onClick={scrollToProjects}
+                      icon={<ArrowDown className="w-4 h-4" />}
+                    >
+                      View Projects
+                    </AnimatedButton>
+                    <AnimatedButton 
+                      variant="secondary"
+                      icon={<Download className="w-4 h-4" />}
+                    >
+                      Download CV
+                    </AnimatedButton>
+                  </div>
+                </AnimatedSection>
+
+                <AnimatedSection delay={0.7}>
+                  <SocialLinks />
+                </AnimatedSection>
+              </div>
+
+              {/* Right Column - Skills & Services */}
+              <div className="md:pt-16">
+                <AnimatedSection delay={0.3} direction="left">
+                  <div id="skills" className="mb-10">
+                    <h2 className="text-lg font-semibold text-gray-100 mb-4 flex items-center gap-2">
+                      <Code2 className="w-5 h-5 text-[#C96065]" />
+                      Key Skills
+                    </h2>
+                    <div className="grid grid-cols-4 gap-2">
+                      {skills.map((skill, index) => (
+                        <motion.div
+                          key={skill}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.5 + index * 0.05 }}
+                        >
+                          <InteractiveTag>{skill}</InteractiveTag>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </AnimatedSection>
+
+                <AnimatedSection delay={0.5} direction="left">
+                  <div>
+                    <h2 className="text-lg font-semibold text-gray-100 mb-4 flex items-center gap-2">
+                      <Sparkles className="w-5 h-5 text-[#C96065]" />
+                      What I Do
+                    </h2>
+                    <div className="space-y-1">
+                      {services.map((service, index) => (
+                        <ServiceCard
+                          key={service.title}
+                          title={service.title}
+                          description={service.description}
+                          icon={service.icon}
+                          delay={0.6 + index * 0.1}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </AnimatedSection>
+              </div>
+            </div>
+
+            {/* Stats Section */}
+            <AnimatedSection delay={0.8}>
+              <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-16">
+                <AnimatedBox 
+                  TopText={`${age - 17}+`} 
+                  Subtitle="Years of Experience" 
+                  delay={0.9}
+                  countUp
+                  countTarget={age - 17}
+                />
+                <AnimatedBox 
+                  TopText="5+" 
+                  Subtitle="Projects in Production" 
+                  delay={1.0}
+                  countUp
+                  countTarget={5}
+                />
+                <AnimatedBox 
+                  TopText="20+" 
+                  Subtitle="Projects Completed" 
+                  delay={1.1}
+                  countUp
+                  countTarget={20}
+                />
+                <AnimatedBox 
+                  TopText="403+" 
+                  Subtitle="Teas Consumed" 
+                  delay={1.2}
+                  countUp
+                  countTarget={403}
+                />
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Experience Section */}
+        <section id="experience" className="py-20 px-6 flex justify-center">
+          <ExperienceSection />
+        </section>
+
+        {/* Tech Stack Section */}
+        <section id="tech" className="py-20 px-6 flex justify-center bg-gradient-to-b from-transparent via-[#0d0d0d] to-transparent">
+          <TechStackSection />
+        </section>
+
+        {/* Projects Section */}
+        <section id="projects" className="py-20 px-6 flex justify-center">
+          <ProjectsSection />
+        </section>
+
+        {/* Education Section */}
+        <section id="education" className="py-20 px-6 flex justify-center bg-gradient-to-b from-transparent via-[#0d0d0d] to-transparent">
+          <EducationSection />
+        </section>
+
+        {/* Contact CTA Section */}
+        <section id="contact" className="py-20 px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#C96065]/20 flex items-center justify-center"
+            >
+              <Code2 className="w-8 h-8 text-[#C96065]" />
+            </motion.div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Let's Build Something Amazing
+            </h2>
+            <p className="text-gray-400 mb-8 max-w-lg mx-auto">
+              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <AnimatedButton 
+                variant="primary" 
+                onClick={() => setIsContactOpen(true)}
+              >
+                Get In Touch
+              </AnimatedButton>
+              <AnimatedButton 
+                variant="secondary"
+                icon={<FileText className="w-4 h-4" />}
+              >
+                View Resume
+              </AnimatedButton>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Footer */}
+        <footer className="py-8 px-6 border-t border-[#252525]">
+          <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-gray-500 text-sm flex items-center gap-1"
+            >
+              © {new Date().getFullYear()} Darian Baker. Built with Next.js & <Heart className="w-4 h-4 text-[#C96065]" />
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex items-center gap-2 text-gray-500 text-sm"
+            >
+              <Coffee className="w-4 h-4" />
+              Fueled by tea
+            </motion.div>
+          </div>
+        </footer>
+      </main>
+
+      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+    </>
   )
 }
-
-export default page
