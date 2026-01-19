@@ -78,6 +78,18 @@ const projects: Project[] = [
     githubUrl: "https://github.com/ShadowOfHumanity/darian-baker",
     liveUrl: "https://darianbaker.eu"
   }
+  ,
+  {
+    id: 6,
+    title: "sign-to-text",
+    description: "Real-time sign language to text translator.",
+    longDescription: "Sign-to-Text is an application that translates sign language gestures into text in real time using computer vision and machine learning techniques. Built for accessibility and inclusivity.",
+    tags: ["TypeScript", "Google Pipeline", "Accessibility"],
+    icon: Bot,
+    color: "#10B981",
+    githubUrl: "https://github.com/ShadowOfHumanity/sign-to-text",
+    liveUrl: undefined
+  }
 ]
 
 const ProjectsSection = () => {
