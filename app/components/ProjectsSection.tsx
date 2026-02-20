@@ -32,7 +32,7 @@ const projects: Project[] = [
     icon: BarChart3,
     color: "#8B5CF6",
     githubUrl: "https://github.com/ShadowOfHumanity/game-hub",
-    liveUrl: undefined
+    liveUrl: "https://game-hub-rho-lyart.vercel.app"
   },
   {
     id: 2,
@@ -88,7 +88,7 @@ const projects: Project[] = [
     icon: Bot,
     color: "#10B981",
     githubUrl: "https://github.com/ShadowOfHumanity/sign-to-text",
-    liveUrl: undefined
+    liveUrl: "https://sign-to-text-ten.vercel.app"
   }
 ]
 
