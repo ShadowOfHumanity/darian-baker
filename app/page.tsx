@@ -23,6 +23,7 @@ import Navbar from './components/Navbar'
 import ExperienceSection from './components/ExperienceSection'
 import EducationSection from './components/EducationSection'
 import TechStackSection from './components/TechStackSection'
+import OpenSourceSection from './components/OpenSourceSection'
 
 const services = [
   { 
@@ -112,13 +113,13 @@ export default function Home() {
 
                 <AnimatedSection delay={0.2}>
                   <div className="text-2xl text-gray-300 mb-8 h-10">
-                    <TypewriterText 
+                    <TypewriterText
                       texts={[
-                        'Fullstack Developer',
+                        'Backend Developer',
                         'Problem Solver',
-                        'Tech Enthusiast',
+                        'OSS Contributor',
                         'Tea Connoisseur'
-                      ]} 
+                      ]}
                     />
                   </div>
                 </AnimatedSection>
@@ -128,7 +129,7 @@ export default function Home() {
                     {[
                       { icon: MapPin, text: 'Based in Għargħur, Malta' },
                       { icon: Disc, text: `${age} Years Old` },
-                      { icon: Braces, text: 'Fullstack Software Developer' },
+                      { icon: Braces, text: 'Backend Software Developer' },
                       { icon: Calendar, text: `${age - 17}+ Years Of Experience` },
                     ].map((item, index) => (
                       <motion.div
@@ -148,10 +149,11 @@ export default function Home() {
 
                 <AnimatedSection delay={0.5}>
                   <p className="text-gray-400 leading-relaxed mb-8 max-w-md">
-                    As a {age}-year-old software developer from Malta
-                    {age < 21 && ' currently studying at the University of Malta'}, 
-                    I push my skills further daily. Outside of development, I enjoy football, 
-                    staying active, and discovering elegant solutions to complex problems.
+                    As a {age}-year-old <span className="text-gray-300 font-medium">backend developer</span> from Malta
+                    {age < 21 && ' currently studying at the University of Malta'},
+                    I specialise in building robust server-side systems with .NET and C# — including a verified
+                    contribution to the <span className="text-[#C96065] font-medium">dotnet/aspnetcore</span> repository.
+                    I push my skills further daily and enjoy discovering elegant solutions to complex problems.
                   </p>
                 </AnimatedSection>
 
@@ -286,6 +288,11 @@ export default function Home() {
         {/* Projects Section */}
         <section id="projects" className="py-20 px-6 flex justify-center">
           <ProjectsSection />
+        </section>
+
+        {/* Open Source Section */}
+        <section id="opensource" className="py-20 px-6 flex justify-center bg-gradient-to-b from-transparent via-[#0d0d0d] to-transparent">
+          <OpenSourceSection />
         </section>
 
         {/* Education Section */}
