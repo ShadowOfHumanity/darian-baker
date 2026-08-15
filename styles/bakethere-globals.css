@@ -93,13 +93,7 @@ input[type="range"].bt-slider {
   width: 100%;
   height: 6px;
   border-radius: 9999px;
-  background: linear-gradient(
-    to right,
-    var(--bt-accent) 0%,
-    var(--bt-accent) var(--bt-slider-value, 0%),
-    var(--bt-bg-muted) var(--bt-slider-value, 0%),
-    var(--bt-bg-muted) 100%
-  );
+  background: var(--bt-bg-muted);
   outline: none;
   cursor: pointer;
 }
