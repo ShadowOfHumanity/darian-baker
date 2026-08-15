@@ -186,6 +186,7 @@ No runtime fetching, client state, modal, contact API, particle system, count-up
 ## Accessibility and Resilience
 
 - Semantic landmarks and heading order: one `h1`; section `h2`s.
+- The first focusable element is a `Skip to content` link targeting the page's main landmark.
 - Portrait has specific alt text; decorative rules are hidden from assistive technology.
 - All interactive elements have visible keyboard focus with at least 3:1 contrast.
 - Minimum touch target height: 44px.
