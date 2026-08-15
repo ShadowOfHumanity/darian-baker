@@ -1,0 +1,8 @@
+{
+  "componentsDir": "components/ui",
+  "componentsAlias": "@/components/ui",
+  "stylesDir": "styles",
+  "aliases": {
+    "utils": "@/lib/utils"
+  }
+}
