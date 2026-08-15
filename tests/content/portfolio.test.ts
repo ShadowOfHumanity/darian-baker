@@ -4,6 +4,7 @@ import {
   experience,
   profile,
   selectedWork,
+  siteMetadata,
   supportingNotes,
 } from "@/app/content/portfolio";
 
@@ -45,5 +46,18 @@ describe("portfolio content", () => {
       { label: "GitHub", href: "https://github.com/DarianBaker" },
       { label: "CV", href: "/file.pdf" },
     ]);
+  });
+
+  it("publishes the approved metadata positioning from the content model", () => {
+    expect(siteMetadata).toEqual({
+      title: "Darian Baker — Backend Software Developer",
+      description:
+        "Backend Software Developer in Malta building production services, internal platforms, and developer tools with C# and .NET.",
+      openGraph: {
+        title: "Darian Baker — Backend Software Developer",
+        description:
+          "Backend Software Developer in Malta building production services, internal platforms, and developer tools with C# and .NET.",
+      },
+    });
   });
 });

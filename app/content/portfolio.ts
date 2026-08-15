@@ -45,6 +45,19 @@ export const profile = {
     "I'm Darian, a backend developer at Religa with a full-stack background from GiG. I care about systems that remain understandable as the codebase, architecture, and team grow.",
 } as const;
 
+const metadataTitle = "Darian Baker — Backend Software Developer";
+const metadataDescription =
+  "Backend Software Developer in Malta building production services, internal platforms, and developer tools with C# and .NET.";
+
+export const siteMetadata = {
+  title: metadataTitle,
+  description: metadataDescription,
+  openGraph: {
+    title: metadataTitle,
+    description: metadataDescription,
+  },
+} as const;
+
 export const navigation = [
   { label: "Work", href: "#work" },
   { label: "Experience", href: "#experience" },

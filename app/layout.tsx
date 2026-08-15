@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Manrope, Newsreader } from "next/font/google";
+import { siteMetadata } from "@/app/content/portfolio";
 import { BakeThereProvider } from "@/components/ui/BakeThereProvider";
 import "./globals.css";
 
@@ -22,13 +23,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Darian Baker — Backend Software Developer",
-  description:
-    "Backend Software Developer in Malta building production services, internal platforms, and developer tools with C# and .NET.",
+  ...siteMetadata,
   openGraph: {
-    title: "Darian Baker — Backend Software Developer",
-    description:
-      "Backend Software Developer in Malta building production services, internal platforms, and developer tools with C# and .NET.",
+    ...siteMetadata.openGraph,
     type: "website",
   },
 };
