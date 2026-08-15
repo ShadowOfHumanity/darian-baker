@@ -131,21 +131,6 @@ a {
   padding-inline: 1.25rem;
 }
 
-.evidence-stitch {
-  position: relative;
-}
-
-.evidence-stitch::after {
-  position: absolute;
-  top: calc(100% + 0.75rem);
-  left: 50%;
-  width: 1px;
-  height: 1.75rem;
-  background: var(--clay);
-  content: "";
-  transform: translateX(-50%);
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -212,7 +197,7 @@ a {
 }
 
 .hero__role {
-  margin-bottom: 3.25rem;
+  margin-bottom: 1.5rem;
   border-color: var(--hairline);
   background: var(--surface);
   color: var(--clay);

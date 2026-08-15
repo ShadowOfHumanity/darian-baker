@@ -16,7 +16,7 @@ export default function Hero() {
         unoptimized
         className="hero__portrait"
       />
-      <Badge className="hero__role evidence-stitch">{profile.role}</Badge>
+      <Badge className="hero__role">{profile.role}</Badge>
       <h1 id="hero-title">{profile.headline}</h1>
       <p className="hero__intro">{profile.intro}</p>
       <p className="hero__context">

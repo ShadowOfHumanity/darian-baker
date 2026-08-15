@@ -21,7 +21,9 @@ describe("portfolio introduction", () => {
       "src",
       "/darian-baker.jpg",
     );
-    expect(screen.getByText("Backend Software Developer")).toBeInTheDocument();
+    const role = screen.getByText("Backend Software Developer");
+    expect(role).toBeInTheDocument();
+    expect(role).not.toHaveClass("evidence-stitch");
     expect(screen.getByRole("link", { name: "View selected work" })).toHaveAttribute(
       "href",
       "#work",
