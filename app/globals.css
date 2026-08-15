@@ -261,6 +261,119 @@ a {
   color: var(--ink);
 }
 
+.work-grid {
+  display: grid;
+  margin-top: 1.5rem;
+  border-block: 1px solid var(--hairline);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.work-item {
+  min-width: 0;
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+.work-item + .work-item {
+  border-left: 1px solid var(--hairline);
+}
+
+.work-item > .section-label {
+  margin: 0 0 0.75rem;
+}
+
+.work-item h3,
+.meta h3 {
+  margin: 0;
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.work-item > p:not(.section-label),
+.experience-item__evidence > p {
+  margin: 1rem 0 0;
+  color: var(--muted-ink);
+}
+
+.evidence-list {
+  display: grid;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.evidence-list li {
+  position: relative;
+  padding-left: 1.125rem;
+}
+
+.evidence-list li::before {
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 0.35rem;
+  height: 1px;
+  background: var(--clay);
+  content: "";
+}
+
+.technology-list {
+  display: flex;
+  margin: 1.5rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--hairline);
+  flex-wrap: wrap;
+  gap: 0.375rem 0.75rem;
+  color: var(--muted-ink);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.work-item > .text-link {
+  margin-top: 1.25rem;
+}
+
+.experience-list {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.experience-item {
+  display: grid;
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+  border-bottom: 1px solid var(--hairline);
+  grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 2fr);
+  gap: clamp(2rem, 7vw, 6rem);
+}
+
+.meta p {
+  margin: 0.25rem 0 0;
+  color: var(--muted-ink);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.meta .meta__company {
+  margin-top: 0.75rem;
+  color: var(--ink);
+  font-family: var(--font-manrope), Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.experience-item__evidence > p {
+  max-width: var(--reading-width);
+  margin-top: 0;
+}
+
 @media (hover: hover) {
   .text-link:hover {
     color: var(--clay);
@@ -315,6 +428,24 @@ a {
 
   .hero__about {
     margin-top: 3.5rem;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-item {
+    padding-inline: 0;
+  }
+
+  .work-item + .work-item {
+    border-top: 1px solid var(--hairline);
+    border-left: 0;
+  }
+
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
