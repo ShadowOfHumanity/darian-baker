@@ -8,14 +8,17 @@ import TechnicalPractice from "@/app/components/TechnicalPractice";
 export default function Home() {
   return (
     <>
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <Hero />
         <SelectedWork />
         <Experience />
         <TechnicalPractice />
+        <ContactFooter />
       </main>
-      <ContactFooter />
     </>
   );
 }

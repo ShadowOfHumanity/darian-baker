@@ -5,10 +5,12 @@ export default function ContactFooter() {
 
   return (
     <>
-      <section aria-labelledby="contact-heading" className="contact-section" id="contact">
+      <section aria-labelledby="contact-label" className="contact-section" id="contact">
         <div className="contact-section__inner site-shell">
           <div>
-            <p className="section-label">Contact</p>
+            <p className="section-label" id="contact-label">
+              Contact
+            </p>
             <h2 id="contact-heading">{profile.headline}</h2>
             <p>{profile.intro}</p>
           </div>
