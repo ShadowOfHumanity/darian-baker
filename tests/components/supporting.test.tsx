@@ -18,15 +18,33 @@ describe("supporting portfolio content", () => {
 
   it("offers direct contact and CV links without a form or availability claim", () => {
     render(<ContactFooter />);
-    expect(screen.getByRole("link", { name: "Email" })).toHaveAttribute(
+    const emailLink = screen.getByRole("link", { name: "Email" });
+    const linkedInLink = screen.getByRole("link", { name: "LinkedIn" });
+    const githubLink = screen.getByRole("link", { name: "GitHub" });
+    const cvLink = screen.getByRole("link", { name: "CV" });
+
+    expect(emailLink).toHaveAttribute(
       "href",
       "mailto:Darianbakerbray@gmail.com",
     );
-    expect(screen.getByRole("link", { name: "LinkedIn" })).toHaveAttribute(
+    expect(emailLink).not.toHaveAttribute("target");
+    expect(emailLink).not.toHaveAttribute("rel");
+    expect(linkedInLink).toHaveAttribute(
       "href",
       "https://www.linkedin.com/in/darian-baker-1402b2327/",
     );
-    expect(screen.getByRole("link", { name: "CV" })).toHaveAttribute("href", "/file.pdf");
+    expect(linkedInLink).toHaveAttribute("target", "_blank");
+    expect(linkedInLink.getAttribute("rel")?.split(/\s+/)).toEqual(
+      expect.arrayContaining(["noopener", "noreferrer"]),
+    );
+    expect(githubLink).toHaveAttribute("href", "https://github.com/DarianBaker");
+    expect(githubLink).toHaveAttribute("target", "_blank");
+    expect(githubLink.getAttribute("rel")?.split(/\s+/)).toEqual(
+      expect.arrayContaining(["noopener", "noreferrer"]),
+    );
+    expect(cvLink).toHaveAttribute("href", "/file.pdf");
+    expect(cvLink).not.toHaveAttribute("target");
+    expect(cvLink).not.toHaveAttribute("rel");
     expect(screen.queryByRole("form")).not.toBeInTheDocument();
     expect(screen.queryByText(/available for|actively looking/i)).not.toBeInTheDocument();
   });

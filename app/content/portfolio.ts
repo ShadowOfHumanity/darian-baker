@@ -6,6 +6,8 @@ export interface NavigationItem {
 export interface WorkItem {
   title: string;
   eyebrow: string;
+  role?: string;
+  period?: string;
   summary: string;
   details: readonly string[];
   technologies: readonly string[];
@@ -17,7 +19,7 @@ export interface ExperienceItem {
   company: string;
   role: string;
   period: string;
-  location: string;
+  location?: string;
   summary: string;
   evidence: readonly string[];
   technologies: readonly string[];
@@ -69,6 +71,8 @@ export const selectedWork = [
   {
     eyebrow: "CURRENT ROLE",
     title: "Religa — backend systems",
+    role: "Mid-level Backend Software Developer",
+    period: "May 2026 — Present",
     summary:
       "Backend systems work across production services and a growing microservice estate.",
     details: [
@@ -165,7 +169,6 @@ export const experience = [
     company: "Freelance Development",
     role: "Full Stack Developer",
     period: "January 2023 — May 2025",
-    location: "Malta",
     summary:
       "Delivered web and backend work across client and game-development engagements.",
     evidence: [

@@ -18,6 +18,11 @@ describe("portfolio content", () => {
       role: "Backend Software Developer",
       period: "May 2026 — Present",
     });
+    expect(selectedWork[0]).toMatchObject({
+      title: "Religa — backend systems",
+      role: "Mid-level Backend Software Developer",
+      period: "May 2026 — Present",
+    });
   });
 
   it("attributes Multi-Codex to upstream OpenAI Codex and Darian's original work", () => {
@@ -25,6 +30,12 @@ describe("portfolio content", () => {
     expect(project?.summary).toContain("OpenAI Codex fork");
     expect(project?.details.join(" ")).toContain("account-pooling proxy");
     expect(project?.href).toBe("https://github.com/DarianBaker/Multi-Codex");
+  });
+
+  it("publishes experience locations only where they are verified", () => {
+    expect(experience[0].location).toBe("Malta");
+    expect(experience[1].location).toBe("Malta");
+    expect(experience[2]).not.toHaveProperty("location");
   });
 
   it("keeps supporting claims narrow and accurate", () => {

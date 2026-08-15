@@ -13,11 +13,15 @@ export default function Hero() {
         width={112}
         height={112}
         priority
+        unoptimized
         className="hero__portrait"
       />
       <Badge className="hero__role evidence-stitch">{profile.role}</Badge>
       <h1 id="hero-title">{profile.headline}</h1>
       <p className="hero__intro">{profile.intro}</p>
+      <p className="hero__context">
+        {profile.location} · {profile.mobility}
+      </p>
       <div className="hero__actions">
         <a className="button-link" href="#work">
           View selected work
@@ -34,7 +38,7 @@ export default function Hero() {
         ) : null}
       </div>
       <p className="hero__about">
-        <strong>About me —</strong> {profile.about} {profile.location}.
+        <strong>About me —</strong> {profile.about}
       </p>
     </section>
   );

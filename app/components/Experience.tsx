@@ -14,7 +14,7 @@ export default function Experience() {
               <h3>{item.role}</h3>
               <p className="meta__company">{item.company}</p>
               <p>{item.period}</p>
-              <p>{item.location}</p>
+              {"location" in item && item.location ? <p>{item.location}</p> : null}
             </div>
 
             <div className="experience-item__evidence">

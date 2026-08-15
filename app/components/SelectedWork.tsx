@@ -12,6 +12,12 @@ export default function SelectedWork() {
           <article className="work-item" key={item.title}>
             <p className="section-label">{item.eyebrow}</p>
             <h3>{item.title}</h3>
+            {"role" in item && "period" in item ? (
+              <p className="work-item__meta">
+                <span>{item.role}</span>
+                <span>{item.period}</span>
+              </p>
+            ) : null}
             <p>{item.summary}</p>
 
             <ul className="evidence-list">
