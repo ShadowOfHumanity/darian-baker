@@ -9,14 +9,14 @@ describe("professional evidence", () => {
     const section = within(container).getByRole("region", { name: "Selected work" });
     const articles = within(section).getAllByRole("article");
     const religaArticle = within(section)
-      .getByRole("heading", { name: "Religa — backend systems" })
+      .getByRole("heading", { name: "Religa: backend systems" })
       .closest("article");
 
     expect(articles).toHaveLength(3);
     expect(religaArticle).not.toBeNull();
     expect(within(religaArticle as HTMLElement).getByText("Mid-level Backend Software Developer"))
       .toBeInTheDocument();
-    expect(within(religaArticle as HTMLElement).getByText("May 2026 — Present"))
+    expect(within(religaArticle as HTMLElement).getByText("May 2026 to present"))
       .toBeInTheDocument();
   });
 
@@ -59,9 +59,9 @@ describe("professional evidence", () => {
     const freelanceArticle = view.getByText("Freelance Development").closest("article");
 
     expect(view.getByText("Religa (Portomaso Group)")).toBeInTheDocument();
-    expect(view.getByText("May 2026 — Present")).toBeInTheDocument();
+    expect(view.getByText("May 2026 to present")).toBeInTheDocument();
     expect(view.getByText("GiG (Gaming Innovation Group)")).toBeInTheDocument();
-    expect(view.getByText("May 2025 — May 2026")).toBeInTheDocument();
+    expect(view.getByText("May 2025 to May 2026")).toBeInTheDocument();
     expect(view.getByText("Freelance Development")).toBeInTheDocument();
     expect(within(religaArticle as HTMLElement).getByText("Malta")).toBeInTheDocument();
     expect(within(gigArticle as HTMLElement).getByText("Malta")).toBeInTheDocument();

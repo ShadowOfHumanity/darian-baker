@@ -20,7 +20,7 @@ export default function Hero() {
       <h1 id="hero-title">{profile.headline}</h1>
       <p className="hero__intro">{profile.intro}</p>
       <p className="hero__context">
-        {profile.location} · {profile.mobility}
+        {profile.location}. {profile.mobility}
       </p>
       <div className="hero__actions">
         <a className="button-link" href="#work">
@@ -38,7 +38,7 @@ export default function Hero() {
         ) : null}
       </div>
       <p className="hero__about">
-        <strong>About me —</strong> {profile.about}
+        <strong>About me:</strong> {profile.about}
       </p>
     </section>
   );

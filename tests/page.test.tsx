@@ -18,12 +18,13 @@ describe("portfolio homepage", () => {
   });
 
   it("does not expose the old junior or generic portfolio claims", () => {
-    render(<Home />);
+    const { container } = render(<Home />);
     expect(screen.queryByText(/years old/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/teas consumed|tea connoisseur/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/years of experience/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/projects completed|projects in production/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/let's build something amazing/i)).not.toBeInTheDocument();
     expect(screen.queryByRole("form")).not.toBeInTheDocument();
+    expect(container.textContent).not.toMatch(/[—–·“”]/u);
   });
 });

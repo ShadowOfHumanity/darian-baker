@@ -39,17 +39,17 @@ export interface ContactLink {
 export const profile = {
   name: "Darian Baker",
   role: "Backend Software Developer",
-  headline: "Thoughtful systems. Dependable delivery.",
-  intro: "I build production services, internal platforms, and developer tools with clarity.",
+  headline: "I build backend systems that stay understandable.",
+  intro: "I work on production services at Religa and build developer tools in my own time.",
   location: "Based in Malta",
-  mobility: "Open to local, remote, and relocation opportunities.",
+  mobility: "Open to local, remote, or relocation opportunities.",
   about:
-    "I'm Darian, a backend developer at Religa with a full-stack background from GiG. I care about systems that remain understandable as the codebase, architecture, and team grow.",
+    "Before Religa, I worked across the frontend and backend at GiG. My strongest work was in backend architecture, which is where I chose to focus.",
 } as const;
 
-const metadataTitle = "Darian Baker — Backend Software Developer";
+const metadataTitle = "Darian Baker | Backend Software Developer";
 const metadataDescription =
-  "Backend Software Developer in Malta building production services, internal platforms, and developer tools with C# and .NET.";
+  "Backend Software Developer in Malta working with C#, .NET, microservices, and internal platforms.";
 
 export const siteMetadata = {
   title: metadataTitle,
@@ -70,14 +70,13 @@ export const navigation = [
 export const selectedWork = [
   {
     eyebrow: "CURRENT ROLE",
-    title: "Religa — backend systems",
+    title: "Religa: backend systems",
     role: "Mid-level Backend Software Developer",
-    period: "May 2026 — Present",
-    summary:
-      "Backend systems work across production services and a growing microservice estate.",
+    period: "May 2026 to present",
+    summary: "I work on production backend services and help standardize a large microservice estate.",
     details: [
-      "Built a production microservice for high-value win alerting.",
-      "Documents and helps align a 30+ microservice estate across seven implementation languages to reduce fragmentation.",
+      "I built a production service that alerts the team when a player wins big.",
+      "I document a 30+ service architecture and help reduce the number of implementation languages from seven.",
     ],
     technologies: [
       "C#",
@@ -100,11 +99,10 @@ export const selectedWork = [
   {
     eyebrow: "OPEN-SOURCE TOOLING",
     title: "Multi-Codex",
-    summary:
-      "A maintained OpenAI Codex fork with original subsystems authored by Darian for account pooling and dependable local use.",
+    summary: "Multi-Codex is a maintained OpenAI Codex fork. I added account pooling and the local tools around it.",
     details: [
-      "Authored a Rust account-pooling proxy with routing and failover.",
-      "Built authentication and setup flows, a Windows installer, self-check tooling, documentation, and real-run verification.",
+      "I built a Rust account-pooling proxy with routing and failover.",
+      "I also built the authentication and setup flows, Windows installer, self-checks, documentation, and real-run verification.",
     ],
     technologies: ["Rust", "OpenAI Codex", "Windows"],
     href: "https://github.com/DarianBaker/Multi-Codex",
@@ -114,9 +112,9 @@ export const selectedWork = [
     eyebrow: "DEVELOPER TOOLING",
     title: "BakeThere CLI",
     summary:
-      "An original TypeScript CLI for copying React and Tailwind components into an application and exporting standalone HTML and CSS.",
+      "My TypeScript CLI for adding React and Tailwind components to an app, with an option to export plain HTML and CSS.",
     details: [
-      "Includes a component registry, three themes, tests, and 31 components.",
+      "The registry includes 31 components, three themes, and tests.",
     ],
     technologies: ["TypeScript", "React", "Tailwind CSS"],
     href: "https://github.com/DarianBaker/bakethere-cli",
@@ -128,13 +126,12 @@ export const experience = [
   {
     company: "Religa (Portomaso Group)",
     role: "Backend Software Developer",
-    period: "May 2026 — Present",
+    period: "May 2026 to present",
     location: "Malta",
-    summary:
-      "Developing production backend systems while helping make a multi-service architecture easier to understand and align.",
+    summary: "I build backend services and help make a 30+ service architecture easier to work with.",
     evidence: [
-      "Built a production microservice for high-value win alerting.",
-      "Documents and helps align a 30+ microservice estate across seven implementation languages without exposing confidential implementation detail.",
+      "I built a production service that alerts the team when a player wins big.",
+      "I document the architecture and help reduce the number of implementation languages from seven.",
     ],
     technologies: [
       "C#",
@@ -155,25 +152,23 @@ export const experience = [
   {
     company: "GiG (Gaming Innovation Group)",
     role: "Full Stack Developer",
-    period: "May 2025 — May 2026",
+    period: "May 2025 to May 2026",
     location: "Malta",
-    summary:
-      "Delivered frontend and backend for an internal platform used by multiple teams for integrations, account management, configuration, and operations.",
+    summary: "I worked on both frontend and backend for an internal platform used by several teams.",
     evidence: [
-      "Made the strongest contribution in backend architecture.",
-      "Worked with TIM and TAM teams on integrations while DevOps owned deployment.",
+      "My strongest work was in backend architecture.",
+      "The platform supported integrations, account management, configuration, and operations. DevOps owned deployment, while TIM and TAM teams handled integrations.",
     ],
     technologies: ["C#", ".NET", "SQL Server", "Redis", "Docker", "React"],
   },
   {
     company: "Freelance Development",
     role: "Full Stack Developer",
-    period: "January 2023 — May 2025",
-    summary:
-      "Delivered web and backend work across client and game-development engagements.",
+    period: "January 2023 to May 2025",
+    summary: "I built websites and backend systems for clients, along with some game development work.",
     evidence: [
-      "Built Next.js web work and Node, Express, and MongoDB backends.",
-      "Contributed to Bertus Gym, BargainToolShop.com, and game-development engagements.",
+      "I used Next.js for web work and Node, Express, and MongoDB for backend projects.",
+      "I worked on Bertus Gym, BargainToolShop.com, and freelance game projects.",
     ],
     technologies: ["TypeScript", "Next.js", "Node.js", "Express", "MongoDB"],
   },
@@ -201,7 +196,7 @@ export const supportingNotes = {
   education: "Studied Software Development at the University of Malta.",
   openSource:
     "Contributed to Microsoft's ASP.NET Core repository in the ResponseDrainingTests area, working within a large production-grade codebase and its review process.",
-  gameDevelopment: "Game development is part of my earlier professional background.",
+  gameDevelopment: "I also spent part of my freelance career working on games.",
 } as const;
 
 export const contactLinks = [

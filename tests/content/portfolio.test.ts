@@ -11,17 +11,17 @@ import {
 describe("portfolio content", () => {
   it("positions Darian as a backend developer with current Religa context", () => {
     expect(profile.role).toBe("Backend Software Developer");
-    expect(profile.headline).toBe("Thoughtful systems. Dependable delivery.");
+    expect(profile.headline).toBe("I build backend systems that stay understandable.");
     expect(profile.location).toBe("Based in Malta");
     expect(experience[0]).toMatchObject({
       company: "Religa (Portomaso Group)",
       role: "Backend Software Developer",
-      period: "May 2026 — Present",
+      period: "May 2026 to present",
     });
     expect(selectedWork[0]).toMatchObject({
-      title: "Religa — backend systems",
+      title: "Religa: backend systems",
       role: "Mid-level Backend Software Developer",
-      period: "May 2026 — Present",
+      period: "May 2026 to present",
     });
   });
 
@@ -61,14 +61,32 @@ describe("portfolio content", () => {
 
   it("publishes the approved metadata positioning from the content model", () => {
     expect(siteMetadata).toEqual({
-      title: "Darian Baker — Backend Software Developer",
+      title: "Darian Baker | Backend Software Developer",
       description:
-        "Backend Software Developer in Malta building production services, internal platforms, and developer tools with C# and .NET.",
+        "Backend Software Developer in Malta working with C#, .NET, microservices, and internal platforms.",
       openGraph: {
-        title: "Darian Baker — Backend Software Developer",
+        title: "Darian Baker | Backend Software Developer",
         description:
-          "Backend Software Developer in Malta building production services, internal platforms, and developer tools with C# and .NET.",
+          "Backend Software Developer in Malta working with C#, .NET, microservices, and internal platforms.",
       },
     });
+  });
+
+  it("uses direct copy without AI-styled punctuation", () => {
+    const publicCopy = JSON.stringify({
+      experience,
+      profile,
+      selectedWork,
+      siteMetadata,
+      supportingNotes,
+    });
+
+    expect(publicCopy).not.toMatch(/[—–·“”]/u);
+    expect(profile.intro).toBe(
+      "I work on production services at Religa and build developer tools in my own time.",
+    );
+    expect(profile.about).toBe(
+      "Before Religa, I worked across the frontend and backend at GiG. My strongest work was in backend architecture, which is where I chose to focus.",
+    );
   });
 });

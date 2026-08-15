@@ -15,7 +15,7 @@ describe("portfolio introduction", () => {
   it("introduces Darian with portrait, backend positioning, and selected-work action", () => {
     render(<Hero />);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "Thoughtful systems. Dependable delivery.",
+      "I build backend systems that stay understandable.",
     );
     expect(screen.getByRole("img", { name: "Darian Baker" })).toHaveAttribute(
       "src",
@@ -26,13 +26,13 @@ describe("portfolio introduction", () => {
       "href",
       "#work",
     );
-    expect(screen.getByText(/backend developer at Religa/i)).toBeInTheDocument();
+    expect(screen.getByText(/strongest work was in backend architecture/i)).toBeInTheDocument();
   });
 
   it("presents location and mobility as quiet profile context", () => {
     const { container } = render(<Hero />);
     const context = within(container).getByText(
-      "Based in Malta · Open to local, remote, and relocation opportunities.",
+      "Based in Malta. Open to local, remote, or relocation opportunities.",
     );
 
     expect(context.tagName).toBe("P");

@@ -1,6 +1,6 @@
-# Darian Baker — Backend Portfolio
+# Darian Baker: Backend Portfolio
 
-A warm, evidence-led single-page portfolio positioning Darian Baker as a backend software developer. The site presents selected production work, professional experience, technical practice, and direct public contact links without a contact API or form.
+This is Darian Baker's portfolio. It focuses on his backend work, past full-stack experience, and personal developer tools. Contact uses public links instead of a form.
 
 ## Stack
 
@@ -12,7 +12,7 @@ A warm, evidence-led single-page portfolio positioning Darian Baker as a backend
 
 ## BakeThere usage
 
-The portfolio imports the vendored BakeThere token and global styles from `styles/bakethere-tokens.css` and `styles/bakethere-globals.css`. Those foundations support the site-specific warm minimalist layer in `app/globals.css` and the evidence label used in the hero.
+The site uses the BakeThere token and global styles from `styles/bakethere-tokens.css` and `styles/bakethere-globals.css`. The portfolio-specific styling lives in `app/globals.css`.
 
 ## Local development
 
